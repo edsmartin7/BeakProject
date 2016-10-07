@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">BeakProject</string>
+    <string name="action_options">Options</string>
+    <string name="action_compose_email">Compose Email</string>
+</resources>
