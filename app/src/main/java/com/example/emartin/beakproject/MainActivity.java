@@ -10,13 +10,20 @@ import android.view.MenuItem;
 //~https://developer.android.com/training/appbar/action-views.html
 //https://design.google.com/icons/
 //Navigation Drawer
-//
+//    https://material.google.com/patterns/navigation-drawer.html#
+//https://developer.android.com/training/implementing-navigation/nav-drawer.html
+//https://developer.android.com/training/design-navigation/index.html
 //Fragments
 //
 //Email Clients
 //
 //Removed from manifest
 //android:theme="@style/AppTheme"
+//Git
+//http://www.goprogramming.space/connecting-an-android-studio-project-with-github/
+//Next
+//create login screen android // email clients android // how to add email client android
+//top navigation bar android //
 
 public class MainActivity extends AppCompatActivity {
 
