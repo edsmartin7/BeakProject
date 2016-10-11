@@ -2,6 +2,7 @@ package com.example.emartin.beakproject;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.res.Configuration;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.MenuItemCompat;
@@ -36,6 +37,7 @@ import java.util.Locale;
 //~https://developer.android.com/training/implementing-navigation/temporal.html
 //Fragments
 //https://developer.android.com/guide/components/fragments.html
+//~https://developer.android.com/guide/components/fragments.html#Managing
 //https://developer.android.com/training/basics/fragments/index.html
 //https://developer.android.com/training/basics/fragments/creating.html
 //http://www.tutorialspoint.com/android/android_fragments.htm
@@ -207,6 +209,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Insert the fragment by replacing any existing fragment
         FragmentManager fragmentManager = getFragmentManager();
+        //FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction(); // same error
         fragmentManager.beginTransaction()
                 .replace(R.id.content_frame, fragment)
                 .commit();
