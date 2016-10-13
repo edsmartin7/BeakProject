@@ -36,8 +36,7 @@ import java.util.Locale;
 //should have a back button for nav drawer
 //~https://developer.android.com/training/implementing-navigation/temporal.html
 //Fragments
-//https://developer.android.com/guide/components/fragments.html
-//~https://developer.android.com/guide/components/fragments.html#Managing
+//    ~https://developer.android.com/guide/components/fragments.html
 //https://developer.android.com/training/basics/fragments/index.html
 //https://developer.android.com/training/basics/fragments/creating.html
 //http://www.tutorialspoint.com/android/android_fragments.htm
@@ -77,42 +76,42 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
-           // Set the adapter for the list view
+        // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-                R.layout.drawer_list_item, mEmailClients));
-           // Set the list's click listener
+                R.layout.drawer_list_item, mEmailClients)); //drawer_list_item.xml has empty TextView???
+        // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
         //Set up the Navigation Drawer's Open/Close event
         mTitle = mDrawerTitle = getTitle();
         mDrawerLayout = (DrawerLayout) findViewById(R.id.main_drawer_layout);
-        /*
+
         mDrawerToggle = new ActionBarDrawerToggle(
                 this,
                 mDrawerLayout,
-                R.drawable.ic_drawer,
+                myToolbar,
                 R.string.drawer_open,
                 R.string.drawer_close
                 ) {
-                */
+                //R.drawable.ic_drawer
 
-
+        /*
         class CustomActionBarDrawerToggle extends ActionBarDrawerToggle{
 
                 public CustomActionBarDrawerToggle(Activity mActivity,
                                                     DrawerLayout mDrawerLayout){
                     super(mActivity, mDrawerLayout, R.string.drawer_open, R.string.drawer_close);
                 }
+         */
 
-
-            /** Called when a drawer has settled in a completely closed state. */
+            //Called when a drawer has settled in a completely closed state
             public void onDrawerClosed(View view) {
                 super.onDrawerClosed(view);
                 getActionBar().setTitle(mTitle);
                 invalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
             }
 
-            /** Called when a drawer has settled in a completely open state. */
+            //Called when a drawer has settled in a completely open state
             public void onDrawerOpened(View drawerView) {
                 super.onDrawerOpened(drawerView);
                 getActionBar().setTitle(mDrawerTitle);
@@ -121,14 +120,14 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // Set the drawer toggle as the DrawerListener
-        mDrawerLayout.setDrawerListener(mDrawerToggle);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
 
         getActionBar().setDisplayHomeAsUpEnabled(true);
         getActionBar().setHomeButtonEnabled(true);
 
     }
 
-    // Action button commnad to open/close Navigation/Drawer
+    // Action button command to open/close Navigation/Drawer
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -141,16 +140,13 @@ public class MainActivity extends AppCompatActivity {
         mDrawerToggle.onConfigurationChanged(newConfig);
     }
 
-
-    /* Called whenever we call invalidateOptionsMenu() */
+    //Called whenever we call invalidateOptionsMenu()
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
         // If the nav drawer is open, hide action items related to the content view
         boolean drawerOpen = mDrawerLayout.isDrawerOpen(mDrawerList);
         menu.findItem(R.id.main_drawer_layout).setVisible(!drawerOpen);
         return super.onPrepareOptionsMenu(menu);
-
-
     }
 
     //
@@ -163,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         } //Will Never reach below code???
 
-        //Right Settigs Menu
+        //Right Settings Menu
         switch (item.getItemId()) {
             case R.id.action_options:
                 return true;
@@ -199,10 +195,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /** Swaps fragments in the main content view */
+    //Swaps fragments in the main content view
     private void selectItem(int position) {
-        // Create a new fragment and specify the planet to show based on position
-        Fragment fragment = new FilteredClientFragment();
+        // Create a new fragment and specify the planet to show based on position //FilteredClientFragment();
+        android.app.Fragment fragment = new FilteredClientFragment();
         Bundle args = new Bundle();
         args.putInt(FilteredClientFragment.ARG_PLANET_NUMBER, position);
         fragment.setArguments(args);
@@ -228,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     //Fragment that appears in the "content_frame", shows a planet
-    public static class FilteredClientFragment extends Fragment {
+    public static class FilteredClientFragment extends android.app.Fragment {
         public static final String ARG_PLANET_NUMBER = "planet_number";
 
         public FilteredClientFragment() {
@@ -253,3 +249,5 @@ public class MainActivity extends AppCompatActivity {
 }
 //Action Bar toggle issues
 //http://stackoverflow.com/questions/26439619/how-to-replace-deprecated-android-support-v4-app-actionbardrawertoggle
+//SetDrawerListener deprecated
+//http://stackoverflow.com/questions/35639454/method-setdrawerlistener-is-deprecated
