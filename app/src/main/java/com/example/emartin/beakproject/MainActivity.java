@@ -222,7 +222,6 @@ public class MainActivity extends AppCompatActivity {
         getActionBar().setTitle(mTitle);
     }
 
-
     //Fragment that appears in the "content_frame", shows a planet
     public static class FilteredClientFragment extends android.app.Fragment {
         public static final String ARG_PLANET_NUMBER = "planet_number";
@@ -244,6 +243,12 @@ public class MainActivity extends AppCompatActivity {
             getActivity().setTitle(planet);
             return rootView;
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 
 }
