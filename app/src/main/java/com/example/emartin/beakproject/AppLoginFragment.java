@@ -4,7 +4,7 @@ package com.example.emartin.beakproject;
 //    http://www.tutorialspoint.com/android/android_login_screen.htm
 //    ~http://sourcey.com/beautiful-android-login-and-signup-screens-with-material-design/
 //~https://developer.android.com/studio/projects/templates.html
-
+//
 
 
 import android.app.Fragment;
