@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/from_text"
+            android:text="From:  "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/to_text"
+            android:layout_alignRight="@+id/to_text"
+            android:layout_alignEnd="@+id/to_text"
+            android:layout_marginBottom="26dp"
+             />
+
+        <EditText
+            android:id="@+id/from_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Enter your email address"
+            android:ems="10"
+            android:layout_above="@+id/to_edit"
+            android:layout_alignRight="@+id/to_edit"
+            android:layout_alignEnd="@+id/to_edit"
+             />
+
+        <EditText
+            android:id="@+id/to_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:hint="Enter send to"
+            android:ems="10"
+            android:layout_above="@+id/subject_edit"
+            android:layout_alignLeft="@+id/subject_edit"
+            android:layout_alignStart="@+id/subject_edit" />
+
+        <TextView
+            android:id="@+id/subject_text"
+            android:text="Subject:  "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginStart="25dp"
+            android:layout_marginBottom="23dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <EditText
+            android:id="@+id/subject_edit"
+            android:hint="Enter subject here"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginRight="36dp"
+            android:layout_marginEnd="36dp"
+            android:layout_alignBaseline="@+id/subject_text"
+            android:layout_alignBottom="@+id/subject_text"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <TextView
+            android:id="@+id/to_text"
+            android:text="To:  "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/to_edit"
+            android:layout_alignBottom="@+id/to_edit"
+            android:layout_alignLeft="@+id/subject_text"
+            android:layout_alignStart="@+id/subject_text" />
+
+        <TextView
+            android:id="@+id/header_text"
+            android:text="New Trackable Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/from_edit"
+            android:layout_alignLeft="@+id/from_edit"
+            android:layout_alignStart="@+id/from_edit"
+            android:layout_marginBottom="12dp"
+             />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:text="Email message here"
+            android:ems="10"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="43dp"
+
+            android:scrollbars="vertical"
+            android:lines="8"
+            android:minLines="6"
+            android:gravity="top|left"
+            android:maxLines="10"
+
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <Button
+            android:id="@+id/send_button"
+            android:text="Send Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="46dp"
+            android:layout_marginStart="46dp"
+            android:layout_marginTop="32dp" />
+
+        <Button
+            android:id="@+id/protect_button"
+            android:text="Protect this Email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/send_button"
+            android:layout_alignBottom="@+id/send_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="74dp"
+            android:layout_marginEnd="74dp" />
+    </RelativeLayout>
+</LinearLayout>

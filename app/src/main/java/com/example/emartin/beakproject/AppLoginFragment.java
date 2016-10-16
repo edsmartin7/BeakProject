@@ -7,13 +7,14 @@ package com.example.emartin.beakproject;
 
 
 
-//import android.app.Fragment;
+import android.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.support.v4.app.Fragment;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 //not a fragment but a separate Activity?
 //static
 //Needs to extend activity to resolve errors
-public class AppLoginFragment extends Fragment{
+public class AppLoginFragment extends AppCompatActivity{
 
     Button b1;
     EditText username,password;
@@ -34,8 +35,6 @@ public class AppLoginFragment extends Fragment{
         b1=(Button)findViewById(R.id.button);
         username = (EditText)findViewById(R.id.enter_username);
         password = (EditText)findViewById(R.id.enter_password);
-
-
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +51,8 @@ public class AppLoginFragment extends Fragment{
 
     }
 
+    /*
+    //removed because not extending fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -59,6 +60,7 @@ public class AppLoginFragment extends Fragment{
         return inflater.inflate(R.layout.app_login_fragment, container, false);
 
     }
+    */
 
     /*
     //onclick method
