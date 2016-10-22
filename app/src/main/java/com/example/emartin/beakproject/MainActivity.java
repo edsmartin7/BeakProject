@@ -22,6 +22,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+
 import java.util.Locale;
 
 //Top Navigation Bar
@@ -63,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
     private CharSequence mDrawerTitle;
     private CharSequence mTitle;
 
+    android.app.Fragment fragment = new FilteredClientFragment();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,6 +82,7 @@ public class MainActivity extends AppCompatActivity {
         // Set the adapter for the list view
         mDrawerList.setAdapter(new ArrayAdapter<String>(this,
                 R.layout.drawer_list_item, mEmailClients)); //drawer_list_item.xml has empty TextView???
+
         // Set the list's click listener
         mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
 
@@ -198,9 +202,9 @@ public class MainActivity extends AppCompatActivity {
     //Swaps fragments in the main content view
     private void selectItem(int position) {
         // Create a new fragment and specify the planet to show based on position //FilteredClientFragment();
-        android.app.Fragment fragment = new FilteredClientFragment();
+        //android.app.Fragment fragment = new FilteredClientFragment();
         Bundle args = new Bundle();
-        args.putInt(FilteredClientFragment.ARG_PLANET_NUMBER, position);
+        args.putInt(FilteredClientFragment.EMAIL_CLIENT_LIST_NUMBER, position);
         fragment.setArguments(args);
 
         // Insert the fragment by replacing any existing fragment
@@ -216,15 +220,17 @@ public class MainActivity extends AppCompatActivity {
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
+
     @Override
     public void setTitle(CharSequence title) {
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
 
+
     //Fragment that appears in the "content_frame", shows a planet
     public static class FilteredClientFragment extends android.app.Fragment {
-        public static final String ARG_PLANET_NUMBER = "planet_number";
+        public static final String EMAIL_CLIENT_LIST_NUMBER = "planet_number";
 
         public FilteredClientFragment() {
             // Empty constructor required for fragment subclasses
@@ -233,8 +239,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.drawer_list_item, container, false);
-            int i = getArguments().getInt(ARG_PLANET_NUMBER);
+            View rootView = inflater.inflate(R.layout.fragment_email_client, container, false);
+            int i = getArguments().getInt(EMAIL_CLIENT_LIST_NUMBER);
             String planet = getResources().getStringArray(R.array.email_client_list)[i];
 
             int imageId = getResources().getIdentifier(planet.toLowerCase(Locale.getDefault()),
