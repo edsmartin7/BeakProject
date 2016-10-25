@@ -26,13 +26,13 @@
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:srcCompat="@drawable/beak_logo_small"
         android:id="@+id/imageView"
         android:layout_marginBottom="79dp"
         android:layout_above="@+id/enter_username"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_height="wrap_content" />
 
     <EditText
         android:id="@+id/enter_username"

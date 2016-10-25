@@ -9,6 +9,7 @@ package com.example.emartin.beakproject;
 
 import android.app.Fragment;
 //import android.support.v4.app.Fragment;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -42,6 +43,7 @@ public class AppLoginFragment extends AppCompatActivity{
                 if(username.getText().toString().equals("admin") &&
                         password.getText().toString().equals("admin")) {
                     Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
+                    loadMainActivity(v);
                 }
                 else{
                     Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
@@ -49,6 +51,11 @@ public class AppLoginFragment extends AppCompatActivity{
             }
         });
 
+    }
+
+    public void loadMainActivity(View view){ //pass the view
+        Intent intent = new Intent(this, DualScreenMainActivity.class);
+        startActivity(intent);
     }
 
     /*
