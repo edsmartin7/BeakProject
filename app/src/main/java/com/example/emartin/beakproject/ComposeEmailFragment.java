@@ -1,7 +1,21 @@
 package com.example.emartin.beakproject;
 
 
-public class ComposeEmailFragment {
+import android.app.Fragment;
+//import android.support.v4.app.Fragment;
+import android.widget.Button;
+
+public class ComposeEmailFragment extends Fragment{
+
+    private String mEmailAddress;
+    private String mSentEamilAddress;
+    private String mEmailSubject;
+    private String mEmailBody;
+    private Button mSendEmail;
+    private Button mAddProtection;
+
+
+
 
 }
 

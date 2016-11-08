@@ -17,6 +17,9 @@ you must use the FragmentManager to create a FragmentTransaction,
 which provides APIs to add, remove, replace, and perform other fragment transactions.
 */
 
+//WYSIWYG editor
+
+
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -60,7 +63,10 @@ public class DualScreenMainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
+    //Create Compose Email Fragment
+
 }
 //declare all(?) activities in Manifest.xml
 //http://stackoverflow.com/questions/8107789/android-error-unable-to-find-explicit-activity-class
-
+//to change starting activity
+//http://stackoverflow.com/questions/3631982/change-applications-starting-activity
