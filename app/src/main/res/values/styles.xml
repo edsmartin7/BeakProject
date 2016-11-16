@@ -8,4 +8,18 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="CircleBox">
+        <solid>
+        <item name="android:color">#FFFFFF</item>
+        </solid>
+        <stroke>
+        <item name="android:width">2dp</item>
+        <item name="android:color">#E7E7E7</item>
+        <item name="android:height">10dp</item>
+        </stroke>
+        <corners>
+        <item name="android:radius">5dp</item>
+        </corners>
+    </style>
+
 </resources>

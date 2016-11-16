@@ -11,22 +11,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:weightSum="1">
-
-        <TextView
-            android:text="Protction is Enabled (click to disable)"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textView" />
+        android:weightSum="1"
+        android:gravity="left|center">
 
         <CheckBox
-            android:text="CheckBox"
+            android:text="Protection is Enabled (click to disable)"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/checkBox" />
+            android:id="@+id/enableProtectionCheckBox" />
+
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -36,13 +32,15 @@
             android:text="Max Views"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView2" />
+            android:id="@+id/maxViewsText"
+             />
 
         <TextView
-            android:text="MAximum number of times each recipient can view the email's content"
+            android:text="Maximum number of times each recipient can view the email's content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/textView3" />
+            android:id="@+id/MaxViewsPhrase"
+             />
 
         <EditText
             android:layout_width="match_parent"
@@ -50,10 +48,10 @@
             android:inputType="textPersonName"
             android:text="Name"
             android:ems="10"
-            android:id="@+id/editText2"
-            />
+            android:id="@+id/numberOfViewsEditText"
+             />
 
-    </LinearLayout>
+    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"
@@ -65,13 +63,14 @@
             android:text="Continue Composing"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button3" />
+            android:id="@+id/finishComposeButton" />
 
         <Button
             android:text="Cancel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/button2" />
+            android:id="@+id/cancelComposeButton" />
+
     </LinearLayout>
 
 </LinearLayout>

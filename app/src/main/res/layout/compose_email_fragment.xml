@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -17,6 +19,7 @@
             android:layout_alignRight="@+id/to_text"
             android:layout_alignEnd="@+id/to_text"
             android:layout_marginBottom="26dp"
+            style="@style/CircleBox"
              />
 
         <EditText
@@ -29,7 +32,8 @@
             android:layout_above="@+id/to_edit"
             android:layout_alignRight="@+id/to_edit"
             android:layout_alignEnd="@+id/to_edit"
-             />
+            style="@style/CircleBox"
+            />
 
         <EditText
             android:id="@+id/to_edit"
@@ -40,7 +44,9 @@
             android:ems="10"
             android:layout_above="@+id/subject_edit"
             android:layout_alignLeft="@+id/subject_edit"
-            android:layout_alignStart="@+id/subject_edit" />
+            android:layout_alignStart="@+id/subject_edit"
+            style="@style/CircleBox"
+            />
 
         <TextView
             android:id="@+id/subject_text"
@@ -52,7 +58,9 @@
             android:layout_marginBottom="23dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:layout_alignParentStart="true"
+            style="@style/CircleBox"
+            />
 
         <EditText
             android:id="@+id/subject_edit"
@@ -66,7 +74,9 @@
             android:layout_alignBaseline="@+id/subject_text"
             android:layout_alignBottom="@+id/subject_text"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignParentEnd="true"
+            style="@style/CircleBox"
+            />
 
         <TextView
             android:id="@+id/to_text"
@@ -76,9 +86,12 @@
             android:layout_alignBaseline="@+id/to_edit"
             android:layout_alignBottom="@+id/to_edit"
             android:layout_alignLeft="@+id/subject_text"
-            android:layout_alignStart="@+id/subject_text" />
+            android:layout_alignStart="@+id/subject_text"
+            style="@style/CircleBox"
+            />
 
         <TextView
+            style="@style/CircleBox"
             android:id="@+id/header_text"
             android:text="New Trackable Email"
             android:layout_width="wrap_content"
@@ -87,7 +100,8 @@
             android:layout_alignLeft="@+id/from_edit"
             android:layout_alignStart="@+id/from_edit"
             android:layout_marginBottom="12dp"
-             />
+            />
+
     </RelativeLayout>
 
     <RelativeLayout
@@ -96,7 +110,7 @@
         android:layout_weight="1">
 
         <EditText
-            android:id="@+id/editText6"
+            android:id="@+id/email_body"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:inputType="textMultiLine"

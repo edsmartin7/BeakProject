@@ -20,6 +20,7 @@ which provides APIs to add, remove, replace, and perform other fragment transact
 //WYSIWYG editor
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -30,7 +31,8 @@ import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-//import android.app.Fragment;
+import android.view.View;
+
 
 //extends FragmentActivity?
 public class DualScreenMainActivity extends AppCompatActivity {
@@ -64,6 +66,15 @@ public class DualScreenMainActivity extends AppCompatActivity {
     }
 
     //Create Compose Email Fragment
+    public void createComposeEmailFragment(View view){
+        //android.support.v4.app.FragmentManager fragmentManager = android.support.v4.app.FragmentManager.getFragmentManager();
+        //android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        //this -> getActivity()? final activity save = this
+        Intent intent = new Intent(this, ComposeEmailFragment.class);
+        startActivity(intent);
+
+    }
 
 }
 //declare all(?) activities in Manifest.xml
