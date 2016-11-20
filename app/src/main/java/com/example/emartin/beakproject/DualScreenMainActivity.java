@@ -81,3 +81,5 @@ public class DualScreenMainActivity extends AppCompatActivity {
 //http://stackoverflow.com/questions/8107789/android-error-unable-to-find-explicit-activity-class
 //to change starting activity
 //http://stackoverflow.com/questions/3631982/change-applications-starting-activity
+//disable landscape orientation
+//http://stackoverflow.com/questions/18189705/how-to-disable-rotating-to-landscape-mode

@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
     >
 
     <LinearLayout
@@ -22,7 +23,7 @@
 
     </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,6 +33,7 @@
             android:text="Max Views"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:id="@+id/maxViewsText"
              />
 
@@ -39,19 +41,48 @@
             android:text="Maximum number of times each recipient can view the email's content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:id="@+id/MaxViewsPhrase"
              />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
             android:inputType="textPersonName"
-            android:text="Name"
-            android:ems="10"
+            android:text="#"
             android:id="@+id/numberOfViewsEditText"
              />
 
-    </RelativeLayout>
+        <CheckBox
+            android:text="Unlimited Views"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/unlimitedViewsCheckBox" />
+
+        <TextView
+            android:text="Expiration Date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/expirationDateText" />
+
+        <TextView
+            android:text="Date in which the email's content will become inaccessible to everyone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/expirationDateDefinitionText" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:ems="10"
+            android:id="@+id/expirationDate" />
+
+    </LinearLayout>
 
     <LinearLayout
         android:orientation="vertical"

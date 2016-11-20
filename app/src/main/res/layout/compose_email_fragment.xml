@@ -19,7 +19,6 @@
             android:layout_alignRight="@+id/to_text"
             android:layout_alignEnd="@+id/to_text"
             android:layout_marginBottom="26dp"
-            style="@style/CircleBox"
              />
 
         <EditText
@@ -32,7 +31,6 @@
             android:layout_above="@+id/to_edit"
             android:layout_alignRight="@+id/to_edit"
             android:layout_alignEnd="@+id/to_edit"
-            style="@style/CircleBox"
             />
 
         <EditText
@@ -45,7 +43,6 @@
             android:layout_above="@+id/subject_edit"
             android:layout_alignLeft="@+id/subject_edit"
             android:layout_alignStart="@+id/subject_edit"
-            style="@style/CircleBox"
             />
 
         <TextView
@@ -59,7 +56,6 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            style="@style/CircleBox"
             />
 
         <EditText
@@ -75,7 +71,6 @@
             android:layout_alignBottom="@+id/subject_text"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true"
-            style="@style/CircleBox"
             />
 
         <TextView
@@ -87,11 +82,9 @@
             android:layout_alignBottom="@+id/to_edit"
             android:layout_alignLeft="@+id/subject_text"
             android:layout_alignStart="@+id/subject_text"
-            style="@style/CircleBox"
             />
 
         <TextView
-            style="@style/CircleBox"
             android:id="@+id/header_text"
             android:text="New Trackable Email"
             android:layout_width="wrap_content"
