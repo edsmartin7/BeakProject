@@ -7,11 +7,11 @@ package com.example.emartin.beakproject;
 //Adapters
 //   https://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews
 
-//import android.app.Fragment;
+import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+//import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;

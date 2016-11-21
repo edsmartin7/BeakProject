@@ -7,10 +7,16 @@ package com.example.emartin.beakproject;
 //    ~https://developer.android.com/training/basics/fragments/fragment-ui.html
 //    ...http://www.vogella.com/tutorials/AndroidFragments/article.html
 //    https://teamtreehouse.com/community/one-activity-two-fragments
-//https://developer.android.com/guide/components/fragments.html
+//~https://developer.android.com/guide/components/fragments.html
 //http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
 //https://www.reddit.com/r/androiddev/comments/2wsb9w/single_activity_multiple_fragments_architecture/
-
+//Menu items
+//   https://developer.android.com/guide/topics/ui/menus.html
+//Styles
+//   https://www.tutorialspoint.com/android/android_styles_and_themes.htm
+//   https://developer.android.com/guide/topics/ui/themes.html
+//http://blog.danlew.net/2014/11/19/styles-on-android/
+//http://www.vogella.com/tutorials/AndroidStylesThemes/article.html
 /*
 To perform a transaction such as add or remove a fragment,
 you must use the FragmentManager to create a FragmentTransaction,
@@ -54,6 +60,7 @@ public class DualScreenMainActivity extends AppCompatActivity {
     //Add Menu (right) to ToolBar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         getMenuInflater().inflate(R.menu.activity_main_top_menu, menu);
 
         MenuItem searchItem = menu.findItem(R.id.action_options);
@@ -65,14 +72,28 @@ public class DualScreenMainActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-    //Create Compose Email Fragment
-    public void createComposeEmailFragment(View view){
-        //android.support.v4.app.FragmentManager fragmentManager = android.support.v4.app.FragmentManager.getFragmentManager();
-        //android.support.v4.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.action_compose_email:
+                createComposeEmailFragment();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
-        //this -> getActivity()? final activity save = this
-        Intent intent = new Intent(this, ComposeEmailFragment.class);
-        startActivity(intent);
+    //Create Compose Email Fragment
+    public void createComposeEmailFragment(){ //View view){
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        ComposeEmailFragment fragment = new ComposeEmailFragment();
+        //fragmentTransaction.add(R.id.dual_screen_main, fragment);
+        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
 
     }
 
