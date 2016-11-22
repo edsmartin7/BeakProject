@@ -111,3 +111,7 @@ public class DualScreenMainActivity extends AppCompatActivity {
 //http://stackoverflow.com/questions/3631982/change-applications-starting-activity
 //disable landscape orientation
 //http://stackoverflow.com/questions/18189705/how-to-disable-rotating-to-landscape-mode
+//styles
+//http://stackoverflow.com/questions/25203501/android-creating-a-circular-textview
+//-color hexadecimals
+//http://www.color-hex.com/color/98afc7

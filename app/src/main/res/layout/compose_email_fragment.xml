@@ -1,130 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_light"
     android:id="@+id/compose_email_fragment"
+    android:weightSum="6"
     >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="2">
+
+
+        <TextView
+            android:id="@+id/header_text"
+            android:text="New Trackable Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:textSize="20dp"
+            android:layout_marginBottom="10dp"
+            />
 
         <TextView
             android:id="@+id/from_text"
             android:text="From:  "
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/to_text"
-            android:layout_alignRight="@+id/to_text"
-            android:layout_alignEnd="@+id/to_text"
-            android:layout_marginBottom="26dp"
+            android:layout_marginBottom="2dp"
              />
 
         <EditText
             android:id="@+id/from_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Enter your email address"
-            android:ems="10"
-            android:layout_above="@+id/to_edit"
-            android:layout_alignRight="@+id/to_edit"
-            android:layout_alignEnd="@+id/to_edit"
-            />
-
-        <EditText
-            android:id="@+id/to_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:hint="Enter send to"
-            android:ems="10"
-            android:layout_above="@+id/subject_edit"
-            android:layout_alignLeft="@+id/subject_edit"
-            android:layout_alignStart="@+id/subject_edit"
-            />
-
-        <TextView
-            android:id="@+id/subject_text"
-            android:text="Subject:  "
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
-            android:layout_marginStart="25dp"
-            android:layout_marginBottom="23dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            />
-
-        <EditText
-            android:id="@+id/subject_edit"
-            android:hint="Enter subject here"
-            android:layout_width="wrap_content"
+            android:hint="Enter your email address..."
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:ems="10"
-            android:layout_marginRight="36dp"
-            android:layout_marginEnd="36dp"
-            android:layout_alignBaseline="@+id/subject_text"
-            android:layout_alignBottom="@+id/subject_text"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/textview_design"
             />
 
         <TextView
             android:id="@+id/to_text"
             android:text="To:  "
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/to_edit"
-            android:layout_alignBottom="@+id/to_edit"
-            android:layout_alignLeft="@+id/subject_text"
-            android:layout_alignStart="@+id/subject_text"
+            android:layout_marginBottom="2dp"
+            />
+
+        <EditText
+            android:id="@+id/to_edit"
+            android:hint="Enter send to..."
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPersonName"
+            android:ems="10"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/textview_design"
             />
 
         <TextView
-            android:id="@+id/header_text"
-            android:text="New Trackable Email"
-            android:layout_width="wrap_content"
+            android:id="@+id/subject_text"
+            android:text="Subject:  "
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/from_edit"
-            android:layout_alignLeft="@+id/from_edit"
-            android:layout_alignStart="@+id/from_edit"
-            android:layout_marginBottom="12dp"
+            android:layout_marginBottom="2dp"
             />
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
 
         <EditText
-            android:id="@+id/email_body"
-            android:layout_width="fill_parent"
+            android:id="@+id/subject_edit"
+            android:hint="Enter subject here..."
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textMultiLine"
-            android:hint="Email message here"
+            android:inputType="textPersonName"
             android:ems="10"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="43dp"
-
-            android:scrollbars="vertical"
-            android:lines="8"
-            android:minLines="6"
-            android:gravity="top|left"
-            android:maxLines="10"
-
+            android:background="@drawable/textview_design"
             />
-    </RelativeLayout>
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="3">
+
+        <EditText
+            android:id="@+id/email_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:hint="Email message here..."
+            android:ems="10"
+            android:scrollbars="vertical"
+            android:gravity="top|left"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:layout_weight="1">
 
@@ -134,6 +112,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@+id/protect_button"
+            android:layout_marginLeft="10dp"
             />
 
         <Button
@@ -141,6 +120,9 @@
             android:text="Protect this Email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignRight="@+id/send_button"/>
+            android:layout_alignRight="@+id/send_button"
+            android:layout_marginLeft="10dp"
+            />
     </LinearLayout>
+
 </LinearLayout>
