@@ -97,6 +97,13 @@ public class DualScreenMainActivity extends AppCompatActivity {
 
     }
 
+    //scrolling list of email clients
+    public void createLeftFragment(){}
+
+    //scrolling list of emails
+    public void createRightFragment(){}
+
+
 }
 //declare all(?) activities in Manifest.xml
 //http://stackoverflow.com/questions/8107789/android-error-unable-to-find-explicit-activity-class
