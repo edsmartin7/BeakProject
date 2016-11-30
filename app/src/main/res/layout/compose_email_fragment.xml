@@ -97,6 +97,7 @@
             android:ems="10"
             android:scrollbars="vertical"
             android:gravity="top|left"
+            android:background="@drawable/textview_design"
             />
     </LinearLayout>
 

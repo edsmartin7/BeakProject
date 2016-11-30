@@ -8,6 +8,7 @@ package com.example.emartin.beakproject;
 //   https://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews
 
 import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -30,12 +31,13 @@ public class ComposeEmailFragment extends Fragment{
     private Button mSendEmail;
     private Button mAddProtection;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState){
 
         Intent intent = getActivity().getIntent();
+
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         return inflater.inflate(R.layout.compose_email_fragment, container, false);
     }
@@ -63,6 +65,7 @@ public class ComposeEmailFragment extends Fragment{
         mEmailSubject = (EditText) getActivity().findViewById(R.id.subject_edit);
         mEmailBody = (EditText) getActivity().findViewById(R.id.email_body);
         mSendEmail = (Button) getActivity().findViewById(R.id.send_button);
+        mAddProtection = (Button) getActivity().findViewById(R.id.protect_button);
 
         //add on click attribute to other activity's xml
 
@@ -70,6 +73,21 @@ public class ComposeEmailFragment extends Fragment{
 
             public void onClick(View v){
                 //start new thread
+            }
+        });
+
+
+        //start create enable protection email fragment
+        mAddProtection.setOnClickListener(new View.OnClickListener(){
+
+            public void onClick(View v){
+                //start new thread
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        createEnableProtectionFragment();
+                    }
+                }).start();
             }
         });
 
@@ -94,6 +112,19 @@ public class ComposeEmailFragment extends Fragment{
     }
     */
 
+    //create Enable Protection Email fragment
+    public void createEnableProtectionFragment(){
+
+        android.app.FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        EnableProtectionFragment fragment = new EnableProtectionFragment();
+        fragmentTransaction.replace(R.id.compose_email_fragment, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
 }
 
 //multiline text box for email content
@@ -103,3 +134,6 @@ public class ComposeEmailFragment extends Fragment{
 //https://developers.google.com/gmail/api/guides/
 //outlook API
 //https://dev.outlook.com/
+//hide actionbar(toolbar) in fragments
+//http://stackoverflow.com/questions/21504088/how-to-hide-action-bar-for-fragment
+//~http://stackoverflow.com/a/38196319

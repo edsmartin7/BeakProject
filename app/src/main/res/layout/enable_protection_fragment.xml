@@ -52,6 +52,7 @@
             android:inputType="textPersonName"
             android:text="#"
             android:id="@+id/numberOfViewsEditText"
+            android:background="@drawable/textview_design"
              />
 
         <CheckBox
@@ -80,7 +81,9 @@
             android:layout_height="wrap_content"
             android:inputType="date"
             android:ems="10"
-            android:id="@+id/expirationDate" />
+            android:id="@+id/expirationDate"
+            android:background="@drawable/textview_design"
+            />
 
     </LinearLayout>
 
