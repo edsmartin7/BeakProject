@@ -17,11 +17,8 @@ package com.example.emartin.beakproject;
 //   https://developer.android.com/guide/topics/ui/themes.html
 //http://blog.danlew.net/2014/11/19/styles-on-android/
 //http://www.vogella.com/tutorials/AndroidStylesThemes/article.html
-/*
-To perform a transaction such as add or remove a fragment,
-you must use the FragmentManager to create a FragmentTransaction,
-which provides APIs to add, remove, replace, and perform other fragment transactions.
-*/
+//Android Networking
+//https://developer.android.com/training/basics/network-ops/index.html
 
 //WYSIWYG editor
 

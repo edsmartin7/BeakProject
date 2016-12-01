@@ -6,6 +6,9 @@ package com.example.emartin.beakproject;
 //   http://stackoverflow.com/questions/5778187/change-the-look-of-edit-text-box-in-android
 //Adapters
 //   https://developer.android.com/guide/topics/ui/declaring-layout.html#AdapterViews
+//Native Android email client (deprecated?)
+//   https://www.tutorialspoint.com/android/android_sending_email.htm
+//
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
