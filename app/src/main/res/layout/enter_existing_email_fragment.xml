@@ -62,7 +62,7 @@
         android:text="Connect to your MailBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button3" />
+        android:id="@+id/enter_connect_client" />
 
     <TextView
         android:layout_width="match_parent"

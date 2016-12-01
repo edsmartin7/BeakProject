@@ -11,5 +11,8 @@
         android:title="@string/action_compose_email"
         app:showAsAction="never"/>
 
+    <item android:id="@+id/action_add_client"
+        android:title="@string/action_add_client"
+        app:showAsAction="never"/>
 
 </menu>

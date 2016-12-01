@@ -75,6 +75,9 @@ public class DualScreenMainActivity extends AppCompatActivity {
             case R.id.action_compose_email:
                 createComposeEmailFragment();
                 return true;
+            case R.id.action_add_client:
+                createEmailAuthorizationFragment();
+                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -88,6 +91,18 @@ public class DualScreenMainActivity extends AppCompatActivity {
 
         ComposeEmailFragment fragment = new ComposeEmailFragment();
         //fragmentTransaction.add(R.id.dual_screen_main, fragment);
+        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
+
+    }
+
+    public void createEmailAuthorizationFragment(){
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        EmailAuthorizationFragment fragment = new EmailAuthorizationFragment();
         fragmentTransaction.replace(R.id.dual_screen_main, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();

@@ -23,7 +23,7 @@ public class EmailAuthorizationFragment extends Fragment{
 
         Intent intent = getActivity().getIntent();
 
-        //((AppCompatActivity) getActivity()).getSupportActionBar().hide();
+        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
 
         return inflater.inflate(R.layout.enter_existing_email_fragment, container, false);
     }
@@ -32,7 +32,7 @@ public class EmailAuthorizationFragment extends Fragment{
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        mConnectEmail = (Button) getActivity().findViewById(R.id.protect_button);
+        mConnectEmail = (Button) getActivity().findViewById(R.id.enter_connect_client);
         mEmailAddress = (EditText) getActivity().findViewById(R.id.add_email_address);
         mPassword = (EditText) getActivity().findViewById(R.id.confirm_password);
 

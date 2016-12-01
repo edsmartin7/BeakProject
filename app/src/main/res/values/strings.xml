@@ -2,6 +2,7 @@
     <string name="app_name">BeakProject</string>
     <string name="action_options">Options</string>
     <string name="action_compose_email">Compose Email</string>
+    <string name="action_add_client">Add Email Client</string>
     <string name="drawer_open">OPEN DRAWER HERE</string>
     <string name="drawer_close">CLOSE DRAWER HERE</string>
 
