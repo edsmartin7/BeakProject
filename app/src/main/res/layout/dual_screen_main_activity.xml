@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<LinearLayout xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dual_screen_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_blue_light"
+    >
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
@@ -17,17 +19,28 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"/>
     <!--Light-->
 
-
-    <FrameLayout
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        >
 
-        />
+        <FrameLayout
+            android:id="@+id/list_of_email_clients"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        />
+        <FrameLayout
+            android:id="@+id/list_of_tracked_emails"
+            android:layout_weight="2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            />
+
+    </LinearLayout>
+
+
     
-</RelativeLayout>
+</LinearLayout>

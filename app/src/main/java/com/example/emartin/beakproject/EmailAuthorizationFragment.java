@@ -23,10 +23,20 @@ public class EmailAuthorizationFragment extends Fragment{
 
         Intent intent = getActivity().getIntent();
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
         return inflater.inflate(R.layout.enter_existing_email_fragment, container, false);
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {

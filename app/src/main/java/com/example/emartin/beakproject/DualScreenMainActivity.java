@@ -50,8 +50,23 @@ public class DualScreenMainActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
 
         //Left Fragment
+        FragmentManager leftSideManager = getFragmentManager();
+        FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
+
+        MainLeftFragment left_fragment = new MainLeftFragment();
+        leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
+        leftFragmentTransaction.addToBackStack(null);
+        leftFragmentTransaction.commit();
 
         //RightFragment
+        FragmentManager rightSideManager = getFragmentManager();
+        FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
+
+        MainRightFragment right_fragment = new MainRightFragment();
+        rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
+        rightFragmentTransaction.addToBackStack(null);
+        rightFragmentTransaction.commit();
+
     }
 
     //Add Menu (right) to ToolBar

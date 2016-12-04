@@ -40,21 +40,19 @@ public class ComposeEmailFragment extends Fragment{
 
         Intent intent = getActivity().getIntent();
 
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
         return inflater.inflate(R.layout.compose_email_fragment, container, false);
     }
 
-
-    /*
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.compose_email_fragment);
-
-        Intent intent = getIntent();
+    public void onResume() {
+        super.onResume();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
-    */
+    @Override
+    public void onStop() {
+        super.onStop();
+        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -95,25 +93,6 @@ public class ComposeEmailFragment extends Fragment{
         });
 
     }
-
-    /*
-    public void onButtonPressed(){
-        mEmailAddress = (EditText) findViewById(R.id.from_edit);
-        mSentEmailAddress = (EditText) findViewById(R.id.to_edit);
-        mEmailSubject = (EditText) findViewById(R.id.subject_edit);
-        mEmailBody = (EditText) findViewById(R.id.email_body);
-        mSendEmail = (Button) findViewById(R.id.send_button);
-
-        //add on click attribute to other activity's xml
-
-        mSendEmail.setOnClickListener(new View.OnClickListener(){
-
-            public void onClick(View v){
-                //start new thread
-            }
-        });
-    }
-    */
 
     //create Enable Protection Email fragment
     public void createEnableProtectionFragment(){
