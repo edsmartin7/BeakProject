@@ -19,6 +19,13 @@ package com.example.emartin.beakproject;
 //http://www.vogella.com/tutorials/AndroidStylesThemes/article.html
 //Android Networking
 //https://developer.android.com/training/basics/network-ops/index.html
+//Back Button
+//https://developer.android.com/guide/components/fragments.html#Transactions
+//https://developer.android.com/reference/android/app/Fragment.html
+//https://developer.android.com/training/basics/fragments/creating.html
+//https://developer.android.com/training/implementing-navigation/temporal.html
+//else (destroy all views)
+//http://stackoverflow.com/questions/18309815/fragments-displayed-over-each-other
 
 //WYSIWYG editor
 
@@ -142,3 +149,5 @@ public class DualScreenMainActivity extends AppCompatActivity {
 //http://stackoverflow.com/questions/25203501/android-creating-a-circular-textview
 //-color hexadecimals
 //http://www.color-hex.com/color/98afc7
+//rounded corners again
+//http://tips.androidhive.info/2013/09/android-layout-rounded-corner-border/
