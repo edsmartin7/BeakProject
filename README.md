@@ -1,4 +1,5 @@
-# BeakProject
-E-mail analytics tracker
+# [BEAK](https://beakit.com)
+======
+Help content creators track and control the content they share on the web.
 
-BeakIt.com
+This project is an Android app to track e-mails using Beak software
