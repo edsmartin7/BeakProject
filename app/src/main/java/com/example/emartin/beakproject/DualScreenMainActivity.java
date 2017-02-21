@@ -8,14 +8,13 @@ package com.example.emartin.beakproject;
 //    ...http://www.vogella.com/tutorials/AndroidFragments/article.html
 //    https://teamtreehouse.com/community/one-activity-two-fragments
 //~https://developer.android.com/guide/components/fragments.html
-//http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
-//https://www.reddit.com/r/androiddev/comments/2wsb9w/single_activity_multiple_fragments_architecture/
+//    http://www.survivingwithandroid.com/2013/04/android-fragment-transaction.html
 //Menu items
 //   https://developer.android.com/guide/topics/ui/menus.html
 //Styles
 //   https://www.tutorialspoint.com/android/android_styles_and_themes.htm
 //   https://developer.android.com/guide/topics/ui/themes.html
-//http://blog.danlew.net/2014/11/19/styles-on-android/
+//   http://blog.danlew.net/2014/11/19/styles-on-android/
 //http://www.vogella.com/tutorials/AndroidStylesThemes/article.html
 //Android Networking
 //https://developer.android.com/training/basics/network-ops/index.html
@@ -56,23 +55,42 @@ public class DualScreenMainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        //Left Fragment
-        FragmentManager leftSideManager = getFragmentManager();
-        FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
+        if(findViewById(R.id.main_screen_container) != null){
 
-        MainLeftFragment left_fragment = new MainLeftFragment();
-        leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
-        leftFragmentTransaction.addToBackStack(null);
-        leftFragmentTransaction.commit();
+            if (savedInstanceState != null){
+                return;
+            }
 
-        //RightFragment
-        FragmentManager rightSideManager = getFragmentManager();
-        FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
+            //Left Fragment
+            FragmentManager leftSideManager = getFragmentManager();
+            FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
 
-        MainRightFragment right_fragment = new MainRightFragment();
-        rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
-        rightFragmentTransaction.addToBackStack(null);
-        rightFragmentTransaction.commit();
+            MainLeftFragment left_fragment = new MainLeftFragment();
+            leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
+            leftFragmentTransaction.addToBackStack(null);
+            //leftFragmentTransaction.add(R.id.list_of_email_clients, left_fragment);
+            leftFragmentTransaction.commit();
+
+            /*
+            left_fragment.setArguments(getIntent().getExtras());
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .add(R.id.list_of_email_clients, left_fragment)
+                    .commit();
+             */
+
+
+            //RightFragment
+            FragmentManager rightSideManager = getFragmentManager();
+            FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
+
+            MainRightFragment right_fragment = new MainRightFragment();
+            rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
+            rightFragmentTransaction.addToBackStack(null);
+            //rightFragmentTransaction.add(R.id.list_of_tracked_emails, right_fragment);
+            rightFragmentTransaction.commit();
+
+        }
 
     }
 
