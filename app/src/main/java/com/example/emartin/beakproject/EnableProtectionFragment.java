@@ -16,7 +16,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 
-public class EnableProtectionFragment extends Fragment{
+public class EnableProtectionFragment extends AppCompatActivity{
 
     private CheckBox enableProtection;
     private EditText numberOfViews;
@@ -26,23 +26,12 @@ public class EnableProtectionFragment extends Fragment{
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.enable_protection_fragment);
 
-        Intent intent = getActivity().getIntent();
-
-        ((AppCompatActivity) getActivity()).getSupportActionBar().hide();
-
-        return inflater.inflate(R.layout.enable_protection_fragment, container, false);
-    }
-
-
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        //continue composing: save settings and go back
-        //cancel: cancel and go back
+        Intent intent = getIntent();
+        getSupportActionBar().hide();
 
     }
 

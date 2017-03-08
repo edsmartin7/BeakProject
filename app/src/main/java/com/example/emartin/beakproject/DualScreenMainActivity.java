@@ -126,26 +126,15 @@ public class DualScreenMainActivity extends AppCompatActivity {
     //Create Compose Email Fragment
     public void createComposeEmailFragment(){ //View view){
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        ComposeEmailFragment fragment = new ComposeEmailFragment();
-        //fragmentTransaction.add(R.id.dual_screen_main, fragment);
-        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        Intent intent = new Intent(this, ComposeEmailFragment.class);
+        startActivity(intent);
 
     }
 
     public void createEmailAuthorizationFragment(){
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        EmailAuthorizationFragment fragment = new EmailAuthorizationFragment();
-        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        Intent intent = new Intent(this, EmailAuthorizationFragment.class);
+        startActivity(intent);
 
     }
 

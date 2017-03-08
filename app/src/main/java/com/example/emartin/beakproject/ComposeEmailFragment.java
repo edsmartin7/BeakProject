@@ -57,7 +57,7 @@ public class ComposeEmailFragment extends AppCompatActivity{
     //load next class
     //dualmainscreen for enteremail
     //enableprotection for enableprotection
-    public void loadActivity(View view){ //pass the view
+    public void loadActivity(){ //pass the view
         Intent intent = new Intent(this, DualScreenMainActivity.class);
         startActivity(intent);
     }
@@ -87,7 +87,7 @@ public class ComposeEmailFragment extends AppCompatActivity{
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        loadActivity();
+                        loadActivity(); //
                     }
                 }).start();
             }
