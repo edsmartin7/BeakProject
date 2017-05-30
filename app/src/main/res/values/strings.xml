@@ -17,6 +17,6 @@
     <!--
     <string name="forgot_password_link">Forgot Password?<a href="http://beakit.com/forgotpassword.php">Click Here.</a></string>
     -->
-    <string name="forgot_password_link"> Click Here <a href="http://beakit.com"></a></string>
+    <string name="forgot_password_link"><a href="http://beakit.com"> Click Here </a></string>
 
 </resources>

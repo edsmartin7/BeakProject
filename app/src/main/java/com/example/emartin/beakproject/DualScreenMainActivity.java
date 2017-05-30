@@ -26,9 +26,6 @@ package com.example.emartin.beakproject;
 //else (destroy all views)
 //http://stackoverflow.com/questions/18309815/fragments-displayed-over-each-other
 
-//WYSIWYG editor
-
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;

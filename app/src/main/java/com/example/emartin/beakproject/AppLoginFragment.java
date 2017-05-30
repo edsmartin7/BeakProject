@@ -23,65 +23,45 @@ import android.widget.Toast;
 //not a fragment but a separate Activity?
 //static
 //Needs to extend activity to resolve errors
-public class AppLoginFragment extends AppCompatActivity{
+public class AppLoginFragment extends AppCompatActivity {
 
     Button b1;
-    EditText username,password;
+    EditText username, password;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_login_fragment);
 
-        b1=(Button)findViewById(R.id.button);
-        username = (EditText)findViewById(R.id.enter_username);
-        password = (EditText)findViewById(R.id.enter_password);
+        b1 = (Button) findViewById(R.id.button);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(username.getText().toString().equals("admin") &&
-                        password.getText().toString().equals("admin")) {
-                    Toast.makeText(getApplicationContext(), "Redirecting...",Toast.LENGTH_SHORT).show();
-                    loadMainActivity(v);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
-                }
+                login(v);
             }
         });
-
     }
 
-    public void loadMainActivity(View view){ //pass the view
+    public void loadMainActivity(View view) { //pass the view
         Intent intent = new Intent(this, DualScreenMainActivity.class);
         startActivity(intent);
     }
 
-    /*
-    //removed because not extending fragment
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public void login(View v) {
+        username = (EditText) findViewById(R.id.enter_username);
+        password = (EditText) findViewById(R.id.enter_password);
 
-        return inflater.inflate(R.layout.app_login_fragment, container, false);
-
-    }
-    */
-
-    /*
-    //onclick method
-    public void login(View view){
-        if(username.getText().toString().equals("admin") && password.getText().toString().equals("admin")){
-
-            //correcct password
-        }else{
-            //wrong password
+        if (username.getText().toString().equals("admin") &&
+                password.getText().toString().equals("admin")) {
+            Toast.makeText(getApplicationContext(), "Redirecting...", Toast.LENGTH_SHORT).show();
+            loadMainActivity(v);
+        } else {
+            Toast.makeText(getApplicationContext(), "Wrong Credentials", Toast.LENGTH_SHORT).show();
         }
-     */
-
     }
 
+}
 //link to web
 //http://stackoverflow.com/questions/8992047/adding-a-web-link-to-a-textview-widget
 //git: clone a specific branch

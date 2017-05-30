@@ -73,9 +73,9 @@
         android:text="@string/forgot_password_link"
         android:gravity="center"
         android:autoLink="web"
-        android:linksClickable="true"
+        android:onClick="true"
         />
 
-
-
 </LinearLayout>
+
+<!-- android:linksClickable="true" -->
