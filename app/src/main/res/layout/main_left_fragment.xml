@@ -15,6 +15,12 @@
         />
 
     <!-- add recycler view -->
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/email_client_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="vertical"
+        />
 
 
 </LinearLayout>

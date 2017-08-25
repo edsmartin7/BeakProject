@@ -26,6 +26,10 @@ package com.example.emartin.beakproject;
 //https://developer.android.com/training/implementing-navigation/temporal.html
 //else (destroy all views)
 //http://stackoverflow.com/questions/18309815/fragments-displayed-over-each-other
+//recyclverView
+//https://developer.android.com/training/material/lists-cards.html
+//https://developer.android.com/guide/topics/ui/layout/recyclerview.html
+//https://stackoverflow.com/documentation/android/169/recyclerview#t=201708250439137251251
 
 //WYSIWYG editor
 
@@ -56,23 +60,8 @@ public class DualScreenMainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        //Left Fragment
-        FragmentManager leftSideManager = getFragmentManager();
-        FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
-
-        MainLeftFragment left_fragment = new MainLeftFragment();
-        leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
-        leftFragmentTransaction.addToBackStack(null);
-        leftFragmentTransaction.commit();
-
-        //RightFragment
-        FragmentManager rightSideManager = getFragmentManager();
-        FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
-
-        MainRightFragment right_fragment = new MainRightFragment();
-        rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
-        rightFragmentTransaction.addToBackStack(null);
-        rightFragmentTransaction.commit();
+        createLeftFragment();
+        createRightFragment();
 
     }
 
@@ -114,8 +103,8 @@ public class DualScreenMainActivity extends AppCompatActivity {
         ComposeEmailFragment fragment = new ComposeEmailFragment();
         //fragmentTransaction.add(R.id.dual_screen_main, fragment);
         fragmentTransaction.replace(R.id.dual_screen_main, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
     }
 
@@ -126,19 +115,39 @@ public class DualScreenMainActivity extends AppCompatActivity {
 
         EmailAuthorizationFragment fragment = new EmailAuthorizationFragment();
         fragmentTransaction.replace(R.id.dual_screen_main, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
     }
 
     //scrolling list of email clients
-    public void createLeftFragment(){}
+    public void createLeftFragment(){
+
+        //Left Fragment
+        FragmentManager leftSideManager = getFragmentManager();
+        FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
+
+        MainLeftFragment left_fragment = new MainLeftFragment();
+        leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
+        leftFragmentTransaction.commit();
+
+    }
 
     //scrolling list of emails
-    public void createRightFragment(){}
+    public void createRightFragment(){
 
+        //RightFragment
+        FragmentManager rightSideManager = getFragmentManager();
+        FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
+
+        MainRightFragment right_fragment = new MainRightFragment();
+        rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
+        rightFragmentTransaction.commit();
+
+    }
 
 }
+
 //declare all(?) activities in Manifest.xml
 //http://stackoverflow.com/questions/8107789/android-error-unable-to-find-explicit-activity-class
 //to change starting activity
