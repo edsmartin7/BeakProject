@@ -8,13 +8,14 @@ package com.example.emartin.beakproject;
 //    ...http://www.vogella.com/tutorials/AndroidFragments/article.html
 //    https://teamtreehouse.com/community/one-activity-two-fragments
 //~https://developer.android.com/guide/components/fragments.html
-//    http://www.survivingwithandroid.com/2013/04/android-fragment-transaction.html
+//http://www.cs.dartmouth.edu/~campbell/cs65/lecture09/lecture09.html
+//https://www.reddit.com/r/androiddev/comments/2wsb9w/single_activity_multiple_fragments_architecture/
 //Menu items
 //   https://developer.android.com/guide/topics/ui/menus.html
 //Styles
 //   https://www.tutorialspoint.com/android/android_styles_and_themes.htm
 //   https://developer.android.com/guide/topics/ui/themes.html
-//   http://blog.danlew.net/2014/11/19/styles-on-android/
+//http://blog.danlew.net/2014/11/19/styles-on-android/
 //http://www.vogella.com/tutorials/AndroidStylesThemes/article.html
 //Android Networking
 //https://developer.android.com/training/basics/network-ops/index.html
@@ -25,6 +26,13 @@ package com.example.emartin.beakproject;
 //https://developer.android.com/training/implementing-navigation/temporal.html
 //else (destroy all views)
 //http://stackoverflow.com/questions/18309815/fragments-displayed-over-each-other
+//recyclverView
+//   https://developer.android.com/training/material/lists-cards.html
+//~https://developer.android.com/guide/topics/ui/layout/recyclerview.html
+//   https://stackoverflow.com/documentation/android/169/recyclerview#t=201708250439137251251
+
+//WYSIWYG editor
+
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -33,6 +41,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -43,6 +53,12 @@ import android.view.View;
 //extends FragmentActivity?
 public class DualScreenMainActivity extends AppCompatActivity {
 
+    //left side email client list
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,42 +68,8 @@ public class DualScreenMainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        if(findViewById(R.id.main_screen_container) != null){
-
-            if (savedInstanceState != null){
-                return;
-            }
-
-            //Left Fragment
-            FragmentManager leftSideManager = getFragmentManager();
-            FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
-
-            MainLeftFragment left_fragment = new MainLeftFragment();
-            leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
-            leftFragmentTransaction.addToBackStack(null);
-            //leftFragmentTransaction.add(R.id.list_of_email_clients, left_fragment);
-            leftFragmentTransaction.commit();
-
-            /*
-            left_fragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.list_of_email_clients, left_fragment)
-                    .commit();
-             */
-
-
-            //RightFragment
-            FragmentManager rightSideManager = getFragmentManager();
-            FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
-
-            MainRightFragment right_fragment = new MainRightFragment();
-            rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
-            rightFragmentTransaction.addToBackStack(null);
-            //rightFragmentTransaction.add(R.id.list_of_tracked_emails, right_fragment);
-            rightFragmentTransaction.commit();
-
-        }
+        createLeftFragment();
+        createRightFragment();
 
     }
 
@@ -123,26 +105,69 @@ public class DualScreenMainActivity extends AppCompatActivity {
     //Create Compose Email Fragment
     public void createComposeEmailFragment(){ //View view){
 
-        Intent intent = new Intent(this, ComposeEmailFragment.class);
-        startActivity(intent);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        ComposeEmailFragment fragment = new ComposeEmailFragment();
+        //fragmentTransaction.add(R.id.dual_screen_main, fragment);
+        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
     }
 
     public void createEmailAuthorizationFragment(){
 
-        Intent intent = new Intent(this, EmailAuthorizationFragment.class);
-        startActivity(intent);
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        EmailAuthorizationFragment fragment = new EmailAuthorizationFragment();
+        fragmentTransaction.replace(R.id.dual_screen_main, fragment);
+        //fragmentTransaction.addToBackStack(null);
+        //fragmentTransaction.commit();
 
     }
 
     //scrolling list of email clients
-    public void createLeftFragment(){}
+    public void createLeftFragment(){
+
+        //Left Fragment
+        FragmentManager leftSideManager = getFragmentManager();
+        FragmentTransaction leftFragmentTransaction = leftSideManager.beginTransaction();
+
+        MainLeftFragment left_fragment = new MainLeftFragment();
+        leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
+        leftFragmentTransaction.commit();
+
+        //content of left side (email client list)
+        mRecyclerView = (RecyclerView) findViewById(R.id.email_client_list);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        // specify an adapter (see also next example)
+        mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
+    }
 
     //scrolling list of emails
-    public void createRightFragment(){}
+    public void createRightFragment(){
 
+        //RightFragment
+        FragmentManager rightSideManager = getFragmentManager();
+        FragmentTransaction rightFragmentTransaction = rightSideManager.beginTransaction();
+
+        MainRightFragment right_fragment = new MainRightFragment();
+        rightFragmentTransaction.replace(R.id.list_of_tracked_emails, right_fragment);
+        rightFragmentTransaction.commit();
+
+    }
 
 }
+
 //declare all(?) activities in Manifest.xml
 //http://stackoverflow.com/questions/8107789/android-error-unable-to-find-explicit-activity-class
 //to change starting activity
