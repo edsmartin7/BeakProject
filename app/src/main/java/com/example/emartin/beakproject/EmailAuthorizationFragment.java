@@ -11,40 +11,23 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class EmailAuthorizationFragment extends Fragment{
+public class EmailAuthorizationFragment extends AppCompatActivity{
 
     private EditText mEmailAddress;
     private EditText mPassword;
     private Button mConnectEmail;
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
-
-        Intent intent = getActivity().getIntent();
-
-        return inflater.inflate(R.layout.enter_existing_email_fragment, container, false);
-    }
 
     @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.enter_existing_email_fragment);
 
+        Intent intent = getIntent();
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        mConnectEmail = (Button) getActivity().findViewById(R.id.enter_connect_client);
-        mEmailAddress = (EditText) getActivity().findViewById(R.id.add_email_address);
-        mPassword = (EditText) getActivity().findViewById(R.id.confirm_password);
+        mConnectEmail = (Button) findViewById(R.id.enter_connect_client);
+        mEmailAddress = (EditText) findViewById(R.id.add_email_address);
+        mPassword = (EditText) findViewById(R.id.confirm_password);
 
         //start save email data method
         mConnectEmail.setOnClickListener(new View.OnClickListener(){
@@ -59,6 +42,18 @@ public class EmailAuthorizationFragment extends Fragment{
                 }).start();
             }
         });
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getSupportActionBar().hide();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        getSupportActionBar().show();
     }
 
     public void saveEmailAddress(){

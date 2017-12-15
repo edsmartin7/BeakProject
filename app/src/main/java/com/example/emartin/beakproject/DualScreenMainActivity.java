@@ -30,6 +30,9 @@ package com.example.emartin.beakproject;
 //https://developer.android.com/training/material/lists-cards.html
 //https://developer.android.com/guide/topics/ui/layout/recyclerview.html
 //https://stackoverflow.com/documentation/android/169/recyclerview#t=201708250439137251251
+//   https://developer.android.com/training/material/lists-cards.html
+//~https://developer.android.com/guide/topics/ui/layout/recyclerview.html
+//   https://stackoverflow.com/documentation/android/169/recyclerview#t=201708250439137251251
 
 //WYSIWYG editor
 
@@ -41,6 +44,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -50,6 +55,12 @@ import android.view.View;
 
 //extends FragmentActivity?
 public class DualScreenMainActivity extends AppCompatActivity {
+
+    //left side email client list
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +141,18 @@ public class DualScreenMainActivity extends AppCompatActivity {
         MainLeftFragment left_fragment = new MainLeftFragment();
         leftFragmentTransaction.replace(R.id.list_of_email_clients, left_fragment);
         leftFragmentTransaction.commit();
+
+        //content of left side (email client list)
+        mRecyclerView = (RecyclerView) findViewById(R.id.email_client_list);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        // specify an adapter (see also next example)
+        mAdapter = new MyAdapter(myDataset);
+        mRecyclerView.setAdapter(mAdapter);
 
     }
 

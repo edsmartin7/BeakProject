@@ -10,6 +10,15 @@ package com.example.emartin.beakproject;
 //   https://www.tutorialspoint.com/android/android_sending_email.htm
 //
 
+//Activity Basics
+    //~https://developer.android.com/reference/android/app/Activity.html
+//https://developer.android.com/training/basics/firstapp/starting-activity.html
+//https://developer.android.com/guide/components/fundamentals.html
+//https://developer.android.com/guide/components/activities/tasks-and-back-stack.html
+//https://developer.android.com/guide/components/activities/index.html
+//https://developer.android.com/guide/components/activities/activity-lifecycle.html
+
+
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -25,7 +34,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 
-public class ComposeEmailFragment extends Fragment{
+public class ComposeEmailFragment extends AppCompatActivity{
 
     private EditText mEmailAddress;
     private EditText mSentEmailAddress;
@@ -34,49 +43,41 @@ public class ComposeEmailFragment extends Fragment{
     private Button mSendEmail;
     private Button mAddProtection;
 
+
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState){
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.compose_email_fragment);
 
-        Intent intent = getActivity().getIntent();
+        Intent intent = getIntent();
 
-        return inflater.inflate(R.layout.compose_email_fragment, container, false);
+        }
+
+
+    //load next class
+    //dualmainscreen for enteremail
+    //enableprotection for enableprotection
+    public void loadActivity(){ //pass the view
+        Intent intent = new Intent(this, DualScreenMainActivity.class);
+        startActivity(intent);
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
-    }
-    @Override
-    public void onStop() {
-        super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
-    }
+    //create onclick listener/innerclass for onbuttonpressed method
+    public void composeMessage(View view){
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-
-        //create onclick listener/innerclass for onbuttonpressed method
-        //add prefix getActivity().findViewById to make that work
-
-        mEmailAddress = (EditText) getActivity().findViewById(R.id.from_edit);
-        mSentEmailAddress = (EditText) getActivity().findViewById(R.id.to_edit);
-        mEmailSubject = (EditText) getActivity().findViewById(R.id.subject_edit);
-        mEmailBody = (EditText) getActivity().findViewById(R.id.email_body);
-        mSendEmail = (Button) getActivity().findViewById(R.id.send_button);
-        mAddProtection = (Button) getActivity().findViewById(R.id.protect_button);
+        mEmailAddress = (EditText) findViewById(R.id.from_edit);
+        mSentEmailAddress = (EditText) findViewById(R.id.to_edit);
+        mEmailSubject = (EditText) findViewById(R.id.subject_edit);
+        mEmailBody = (EditText) findViewById(R.id.email_body);
+        mSendEmail = (Button) findViewById(R.id.send_button);
+        mAddProtection = (Button) findViewById(R.id.protect_button);
 
         //add on click attribute to other activity's xml
-
         mSendEmail.setOnClickListener(new View.OnClickListener(){
-
             public void onClick(View v){
                 //start new thread
             }
         });
-
 
         //start create enable protection email fragment
         mAddProtection.setOnClickListener(new View.OnClickListener(){
@@ -86,7 +87,7 @@ public class ComposeEmailFragment extends Fragment{
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        createEnableProtectionFragment();
+                        loadActivity(); //
                     }
                 }).start();
             }
@@ -94,18 +95,6 @@ public class ComposeEmailFragment extends Fragment{
 
     }
 
-    //create Enable Protection Email fragment
-    public void createEnableProtectionFragment(){
-
-        android.app.FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        EnableProtectionFragment fragment = new EnableProtectionFragment();
-        fragmentTransaction.replace(R.id.compose_email_fragment, fragment);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-
-    }
 
 }
 
