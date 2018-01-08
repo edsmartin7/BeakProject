@@ -7,6 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@android:color/holo_blue_dark"
+    tools:context=".LoginActivity"
     >
 
     <ImageView
@@ -43,7 +44,7 @@
         />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/enter_button"
         android:text="@string/button_enter"
         android:onClick="login"
         android:layout_width="match_parent"
@@ -65,6 +66,7 @@
         android:clickable="true"
         />
      -->
+    <!-- android:linksClickable="true" -->
 
     <TextView
         android:id="@+id/forgot_password"
@@ -73,9 +75,7 @@
         android:text="@string/forgot_password_link"
         android:gravity="center"
         android:autoLink="web"
-        android:onClick="true"
+        android:onClick="login"
         />
 
 </LinearLayout>
-
-<!-- android:linksClickable="true" -->
