@@ -6,9 +6,11 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+/*
 //left side email client list
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private String[] mDataset;
+
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
@@ -59,4 +61,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     public int getItemCount() {
         return mDataset.length;
     }
+
+
 }
+*/

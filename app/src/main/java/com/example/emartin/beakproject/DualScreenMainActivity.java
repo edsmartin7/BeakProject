@@ -34,8 +34,8 @@ public class DualScreenMainActivity extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
 
-        createLeftFragment();
-        createRightFragment();
+        //createLeftFragment();
+        //createRightFragment();
 
     }
 
@@ -97,7 +97,7 @@ public class DualScreenMainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter(myDataset);
+        //mAdapter = new MyAdapter(myDataset);
         mRecyclerView.setAdapter(mAdapter);
     }
 
