@@ -1,5 +1,6 @@
 package com.example.emartin.beakproject;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.MenuItemCompat;
@@ -54,12 +55,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.activity_main_top_menu, menu);
 
-        MenuItem searchItem = menu.findItem(R.id.action_options);
-        SearchView searchView =
-                (SearchView) MenuItemCompat.getActionView(searchItem);
-
-        // Configure the search info and add any event listeners...
-
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -67,11 +62,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item){
 
         if(mDrawerToggle.onOptionsItemSelected(item)) {
-
             return true;
         }
-        return super.onOptionsItemSelected(item);
-        /*
+
         switch(item.getItemId()){
             case R.id.action_compose_email:
                 createComposeEmailActivity();
@@ -82,7 +75,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             default:
                 return super.onOptionsItemSelected(item);
         }
-        */
+
+        //return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -98,7 +92,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return false;
     }
 
-    public void createComposeEmailActivity() {}
-    public void createEmailAuthorizationActivity() {}
+    public void createComposeEmailActivity() {
+        Intent intent = new Intent(this, ComposeEmailFragment.class);
+        startActivity(intent);
+    }
+
+    public void createEmailAuthorizationActivity() {
+        Intent intent = new Intent(this, EmailAuthorizationFragment.class);
+        startActivity(intent);
+    }
 
 }
